@@ -5,7 +5,6 @@
  */
 
  body {
-  background: url('../assets/static/total.png') no-repeat center center fixed;
   background: lightseagreen;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -16,4 +15,17 @@
 .card-deck{
   display: flex;
   padding: 0.5rem;
+}
+
+#title{
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
