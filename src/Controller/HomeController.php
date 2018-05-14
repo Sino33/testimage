@@ -79,4 +79,14 @@ class HomeController extends Controller
         
         return new Response('achat enregistré ' .$user);
     }
+
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact()
+    {
+       
+        return $this->render('contact.html.twig');
+    }
 }
+
