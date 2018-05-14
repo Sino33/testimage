@@ -1,0 +1,40 @@
+security:
+
+   encoders:
+
+       App\Entity\User: bcrypt
+
+   # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+
+   providers:
+
+       fos_userbundle:
+
+           id: fos_user.user_provider.username
+
+   firewalls:
+
+       # disables authentication for assets and the profiler, adapt it ac-cording to your needs
+
+       dev:
+
+           pattern: ^/(_(profiler|wdt)|css|images|js)/
+
+           security: false
+
+       main:
+
+           anonymous: ~
+
+           # activate different ways to authenticate
+
+           logout: ~
+
+           form_login:
+
+               csrf_token_generator: security.csrf.token_manager
+
+   access_control:
+
+       - { path: ^/admin, roles: ROLE_ADMIN }
+       - { path: ^/user, roles: ROLE_USER }

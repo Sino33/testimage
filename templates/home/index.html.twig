@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7">
+            <h3 id="title">Ceci est la partie principale du corps de la page<h3>
+            <div class="alert alert-dark">exemple d'article :
+            Pariatur dolore eiusmod id tempor commodo. Officia et aliquip sit magna ullamco id. Magna non voluptate deserunt est officia dolor reprehenderit id do occaecat eiusmod elit. Est sit aute dolor eu exercitation. Quis veniam laboris magna dolore ad ipsum sunt esse tempor magna voluptate magna amet. Do elit ut sit ullamco Lorem qui aute voluptate. Quis magna ut cillum deserunt et adipisicing sint proident excepteur nostrud.
+            </div>
+        </div>
+                {# Permet d'éviter l'analyse par twig #}
+  {#  {% verbatim %}
+    <input type="text" ng-model="task"/>
+    {{task}}
+     {% endverbatim %}
+        <div class="col-md-5">
+            <h3 id="title">Article à la une<h3>
+            <div class="alert">
+        <div class="col-md-3">
+            <h3>Article à la une<h3>
+            <div class="alert alert-info">
+                {% for article in articles %}
+                <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">{{article.nom}}</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <a href="{{ path('achat',{ 'id':article.id }) }}"><button class="btn btn">buy</button></a>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div> #}
+
+    </div>
+</div>
+{% endblock %}
