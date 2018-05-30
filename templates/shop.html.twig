@@ -10,12 +10,14 @@
          
           {% for article in articles %}
           {# {{dump(article.image)}}")}} #}
-        <div class="col-md-4"> 
+        <div class="col-md-3"> 
           <div class="card-deck"> 
             <div class="card">
               <div class="card-body"> 
                 <h5 class="card-title">{{article.nom}}</h5>
-               <img class="card-img-top" src="{{ asset('build/static/total.png') }}" alt="Card image cap">
+                {# src="{{ path ~ vich_uploader_asset(data, 'imageFile', 'App\\Entity\\Crente') }}" #}
+               {# <img class="card-img-top" src="{{ vich_uploader_asset(article.imageFile, 'imageFile', 'App\\Entity\\Article')}}" alt="Card image cap"> #}
+                {# {{ dump(article)}} #}
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">Last updated 3 mins ago</small>

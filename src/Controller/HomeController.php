@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\Panier;
 use App\Entity\Article;
+use App\Form\ArticleType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -88,5 +89,40 @@ class HomeController extends Controller
        
         return $this->render('contact.html.twig');
     }
+
+
+    /**
+     * @Route("/ajout", name="ajout")
+     */
+    public function addArticle(Request $request, RegistryInterface $doctrine)
+   {
+     
+       //Création de mon objet Article//
+       $article = new Article();
+
+       //On récupére le formulaire
+       $form = $this->createform(ArticleType::class,$article);
+
+       $form->handleRequest($request);
+       //Si le formulaire a été soumis
+       if($form->IsSubmitted() && $form->isValid()){
+
+           $em = $this->getDoctrine()->getManager();
+           $em->persist($article);
+           $em->flush();
+           
+     
+       return $this->redirectToRoute('home');
+       }
+
+       //On génére le HTML du formulaire crée
+       $formView = $form->createView();
+
+       //On rend la vue
+       return $this->render('articleForm.html.twig',[
+           'form' => $formView
+       ]);
+   }
+
 }
 

@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\ORM\Mapping\Column;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -25,4 +26,5 @@ Class User extends BaseUser {
     {
         return $this->id;
     }
+
 }
